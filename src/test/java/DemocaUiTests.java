@@ -101,4 +101,58 @@ public class DemocaUiTests extends TestBase {
         democaUiTestsPage.submitForm();
         democaUiTestsPage.checkModalNotVisible();
     }
+
+
+    @Test
+    void fillingFormFieldsCSS_With_Faker() {
+
+        democaUiTestsPage.openPage();
+        democaUiTestsPage.typeFirstName(firstNameF);
+        democaUiTestsPage.typeLastName(lastNameF);
+        democaUiTestsPage.typeUserEmail(userEmailF);
+        democaUiTestsPage.typeUserNumber(userNumberF);
+        democaUiTestsPage.setGender(genterWrapper);
+
+        // Дата рождения
+        democaUiTestsPage.setDateOfBirth(daySelect, monthSelect, yearSelect);
+
+        // Предметы
+        democaUiTestsPage.typeSubjects(subjectsInput);
+
+        //Хобби
+        democaUiTestsPage.setHobby(hobbiesWrapperReading);
+        democaUiTestsPage.setHobby(hobbiesWrapperSports);
+
+        //Адрес
+        democaUiTestsPage.typeCurrentAddress(currentAddress);
+
+        //Картинка
+        democaUiTestsPage.setPicture(uploadPicture);
+
+        //штат и город
+        democaUiTestsPage.setState(state);
+        democaUiTestsPage.setCity(city);
+
+        //нажимаем кнопку
+        democaUiTestsPage.submitForm();
+
+        // Реконсиляция (Проверка по таблице)
+        democaUiTestsPage.checkModalVisible()
+                .checkResult("Student Name", firstName + " " + lastName)
+                .checkResult("Student Email", userEmail)
+                .checkResult("Gender", genterWrapper)
+                .checkResult("Mobile", userNumber)
+                .checkResult("Date of Birth", daySelect + " " + monthSelect + "," + yearSelect)
+                .checkResult("Subjects", subjectsInput)
+                .checkResult("Hobbies", hobbiesWrapperReading + ", " + hobbiesWrapperSports)
+                .checkResult("Picture", uploadPicture)
+                .checkResult("Address", currentAddress)
+                .checkResult("State and City", state + " " + city);
+
+        // Закрытие модального окна
+        democaUiTestsPage.closeModal();
+
+    }
+
+
 }

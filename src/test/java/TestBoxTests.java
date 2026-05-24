@@ -83,7 +83,7 @@ public class TestBoxTests extends TestBase {
 
     @Test
     void fillFormTest_with_utils() {
-        String userName = getRandomString(10);
+       // String userName = getRandomString(10);
         String userEmail = "Sergey@sergey.ru"; // Правильная почта
         String currentAddress = "Adress 1";
         String permanentAddress= "Adress 2";

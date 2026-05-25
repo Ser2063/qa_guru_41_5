@@ -14,19 +14,19 @@ public class TestData {
     public static String currentAddress = "Adress 1";
     public static String permanentAddress= "Adress 2";
 
-    public static String firstName = "Sergey";
-    public static String lastName = "Rzh";
-    public static String userNumber= "1234567890";
-    public static String genterWrapper = "Male";
-    public static String monthSelect = "January";
-    public static String yearSelect = "1984";
-    public static String daySelect = "5";
-    public static String subjectsInput= "Biology";
-    public static String hobbiesWrapperSports = "Sports";
-    public static String hobbiesWrapperReading = "Reading";
+    //public static String firstName = "Sergey";
+    //public static String lastName = "Rzh";
+    //public static String userNumber= "1234567890";
+    //public static String genterWrapper = "Male";
+    //public static String monthSelect = "January";
+   //public static String yearSelect = "1984";
+    //public static String daySelect = "5";
+    //public static String subjectsInput= "Biology";
+    //public static String hobbiesWrapperSports = "Sports";
+    //public static String hobbiesWrapperReading = "Reading";
     public static String uploadPicture = "img.png";
-    public static String state = "NCR";
-    public static String city = "Delhi";
+    //public static String state = "NCR";
+    //public static String city = "Delhi";
 
     //Faker
 
@@ -37,21 +37,19 @@ public class TestData {
     public static String userNumberNegF = "123456789"; //короткий номер
     public static String userNumberNegaF = "abcdefghij"; //буквы вместо цифр
 
-    public static String currentAddressF = "Adress 1";
+    public static String currentAddressF = getRandomAddress();
     public static String permanentAddressF = "Adress 2";
 
     public static String firstNameF = getRandomFirstName(10);
     public static String lastNameF = getRandomLastName(11);
-    public static String userNumberF = getRandomNumber(11);
-    public static String genterWrapperF = "Male";
-    public static String monthSelectF = "January";
-    public static String yearSelectF = "1984";
-    public static String daySelectF = "5";
-    public static String subjectsInpuF = "Biology";
-    public static String hobbiesWrapperSportsF = "Sports";
-    public static String hobbiesWrapperReadingF = "Reading";
-    public static String uploadPictureF = "img.png";
-    public static String stateF = "NCR";
-    public static String cityF = "Delhi";
+    public static String userNumberF = getRandomNumber(10);
+    public static String genterWrapperF = getRandomGender();
+    public static String monthSelectF = getRandomCalendarMonth();
+    public static String yearSelectF = getRandomCalendarYear();
+    public static String daySelectF = getRandomCalendarDay(monthSelectF, yearSelectF);
+    public static String subjectsInputF = getRandomSubject();
+    public static String hobbiesWrapperF = getRandomHobbie();
+    public static String stateF = getRandomState();
+    public static String cityF = (getRandomCity(stateF));
 
     }

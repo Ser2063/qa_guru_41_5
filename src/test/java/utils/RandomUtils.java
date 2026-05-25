@@ -22,9 +22,11 @@ public class RandomUtils {
         System.out.println(getRandomGender());
         System.out.println(getRandomSubject());
         System.out.println(getRandomAddress());
+        System.out.println(getRandomPermamentAddress());
         System.out.println(getRandomHobbie());
         System.out.println(getRandomState());
         System.out.println(getRandomCity(myState));
+
 
 
         // Сначала генерируем месяц и год, чтобы передать их в метод для дня
@@ -39,6 +41,12 @@ public class RandomUtils {
 
 
     public static String getRandomAddress() {
+        Faker faker = new Faker();
+        // Возвращаем сгенерированный адрес напрямую
+        return faker.address().fullAddress();
+    }
+
+    public static String getRandomPermamentAddress() {
         Faker faker = new Faker();
         // Возвращаем сгенерированный адрес напрямую
         return faker.address().fullAddress();
@@ -103,11 +111,11 @@ public class RandomUtils {
     }
 
 
-    public static String getRandomGender_bad_practice (){
-        String[] genders = {"Male", "Female", "Other"};
-        int randomIndex = getRandomInt(0, 2);
-        return genders[randomIndex];
-    }
+//    public static String getRandomGender_bad_practice (){
+//        String[] genders = {"Male", "Female", "Other"};
+//        int randomIndex = getRandomInt(0, 2);
+//        return genders[randomIndex];
+//    }
 
 
     public static String getRandomGender (){
@@ -184,25 +192,14 @@ public class RandomUtils {
 
     public static String getRandomCity(String state) {
 
-        String[] subject;
+        String[] subject = switch (state) {
+            case "NCR" -> new String[]{"Delhi", "Gurgaon", "Noida"};
+            case "Uttar Pradesh" -> new String[]{"Agra", "Lucknow", "Meerut"};
+            case "Haryana" -> new String[]{"Karnal", "Panipat"};
+            case "Rajasthan" -> new String[]{"Jaipur", "Jaiselmer"};
+            default -> new String[]{};
+        };
 
-        switch (state) {
-            case "NCR":
-                subject = new String[]{"Delhi", "Gurgaon", "Noida"};
-                break;
-            case "Uttar Pradesh":
-                subject = new String[]{"Agra", "Lucknow", "Meerut"};
-                break;
-            case "Haryana":
-                subject = new String[]{"Karnal", "Panipat"};
-                break;
-            case "Rajasthan":
-                subject = new String[]{"Jaipur", "Jaiselmer"};
-                break;
-            default:
-                subject = new String[]{};
-                break;
-        }
         return getRandomGenderItemFromStringArray(subject);
     }
 }

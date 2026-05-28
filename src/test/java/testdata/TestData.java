@@ -13,18 +13,18 @@ public class TestData {
 
     //Faker
 
-    public static String userEmailF = getRandomEmail(8); // Правильная почта
+    public static String userEmailF = getRandomEmailF(); // Правильная почта
     public static String currentAddressF = getRandomAddress();
     public static String permanentAddressF = getRandomPermamentAddress();
-    public static String firstNameF = getRandomFirstName(10);
-    public static String lastNameF = getRandomLastName(11);
-    public static String userNumberF = getRandomNumber(10);
-    public static String genterWrapperF = getRandomGender();
+    public static String firstNameF = getRandomFirstNameF();
+    public static String lastNameF = getRandomLastNameF();
+    public static String userNumberF = getRandomNumberF();
+    public static String genterWrapperF = getRandomGenderF();
     public static String monthSelectF = getRandomCalendarMonth();
     public static String yearSelectF = getRandomCalendarYear();
     public static String daySelectF = getRandomCalendarDay(monthSelectF, yearSelectF);
-    public static String subjectsInputF = getRandomSubject();
-    public static String hobbiesWrapperF = getRandomHobbie();
+    public static String subjectsInputF = getRandomSubjectF();
+    public static String hobbiesWrapperF = getRandomHobbieF();
     public static String stateF = getRandomState();
     public static String cityF = (getRandomCity(stateF));
 

@@ -27,6 +27,12 @@ public class RandomUtils {
         System.out.println(getRandomState());
         System.out.println(getRandomCity(myState));
 
+        System.out.println(getRandomFirstNameF());
+        System.out.println(getRandomLastNameF());
+        System.out.println(getRandomEmailF());
+        System.out.println(getRandomNumberF());
+        System.out.println(getRandomGenderF());
+        System.out.println(getRandomSubjectF());
 
 
         // Сначала генерируем месяц и год, чтобы передать их в метод для дня
@@ -40,6 +46,9 @@ public class RandomUtils {
     }
 
 
+
+    // Faker
+
     public static String getRandomAddress() {
         Faker faker = new Faker();
         // Возвращаем сгенерированный адрес напрямую
@@ -51,6 +60,58 @@ public class RandomUtils {
         // Возвращаем сгенерированный адрес напрямую
         return faker.address().fullAddress();
     }
+
+
+    public static String getRandomFirstNameF() {
+        Faker faker = new Faker();
+        // Возвращаем сгенерированный адрес напрямую
+        return faker.name().firstName();
+    }
+
+
+    public static String getRandomLastNameF() {
+        Faker faker = new Faker();
+        // Возвращаем сгенерированный адрес напрямую
+        return faker.name().lastName();
+    }
+
+    public static String getRandomEmailF() {
+        Faker faker = new Faker();
+        // Возвращаем сгенерированный адрес напрямую
+        return faker.internet().emailAddress();
+    }
+
+    public static String getRandomNumberF() {
+        Faker faker = new Faker();
+        // Возвращаем сгенерированный адрес напрямую
+        return faker.phoneNumber().subscriberNumber(10);
+    }
+
+    public static String getRandomGenderF() {
+        Faker faker = new Faker();
+        // Возвращаем сгенерированный адрес напрямую
+        return faker.options().option("Male", "Female", "Other");
+    }
+
+
+    public static String getRandomHobbieF() {
+        Faker faker = new Faker();
+        // Возвращаем сгенерированный адрес напрямую
+        return faker.options().option("Sports", "Reading", "Music");
+    }
+
+
+    public static String getRandomSubjectF() {
+        Faker faker = new Faker();
+        // Возвращаем сгенерированный адрес напрямую
+        return faker.options().option("Maths", "Physics", "Chemistry",
+                "Biology", "Computer Science", "English", "Hindi", "History",
+                "Geography", "Arts", "Social Studies", "Civics", "Economics", "Commerce");
+    }
+
+
+
+    //--------------------------------------------------------------
 
     public static String getRandomFirstName(int length){
 
@@ -99,7 +160,6 @@ public class RandomUtils {
     }
 
 
-
     public static int getRandomInt (int min, int max){
         return ThreadLocalRandom.current().nextInt(min, max+1);
     }
@@ -110,12 +170,6 @@ public class RandomUtils {
        return format(phoneTemplate,  getRandomInt(1, 9), getRandomInt(111, 999), getRandomInt(111, 999), getRandomInt(11, 99), getRandomInt(11, 99));
     }
 
-
-//    public static String getRandomGender_bad_practice (){
-//        String[] genders = {"Male", "Female", "Other"};
-//        int randomIndex = getRandomInt(0, 2);
-//        return genders[randomIndex];
-//    }
 
 
     public static String getRandomGender (){
